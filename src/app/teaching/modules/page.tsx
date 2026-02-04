@@ -212,7 +212,51 @@ export default function AssignedModulesPage() {
         <div className="mt-8 space-y-6">
           {filteredModules.length > 0 ? (
             filteredModules.map((module) => (
-              <ModuleCard key={module.id} module={module} />
+              <div
+                key={module.id}
+                className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {module.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-4">{module.code}</p>
+                  </div>
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      module.status === "active"
+                        ? "bg-green-100 text-green-700"
+                        : module.status === "completed"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-gray-100 text-gray-700"
+                    }`}
+                  >
+                    {module.status.charAt(0).toUpperCase() + module.status.slice(1)}
+                  </span>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Users className="w-4 h-4" />
+                    <span>{module.students} Students</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Calendar className="w-4 h-4" />
+                    <span>{module.schedule}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Clock className="w-4 h-4" />
+                    <span>{module.credits} Credits</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-end pt-4 border-t border-gray-100">
+                  <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                    View Details
+                  </button>
+                </div>
+              </div>
             ))
           ) : (
             <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-12 text-center">
