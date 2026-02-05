@@ -57,7 +57,7 @@ const SelectTrigger = ({ children, className = '' }: SelectTriggerProps) => {
   return (
     <button
       onClick={() => setIsOpen(!isOpen)}
-      className={`flex items-center justify-between bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors ${className}`}
+      className={`flex items-center justify-between bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors min-w-0 overflow-hidden ${className}`}
     >
       {children}
       <ChevronDown className="w-4 h-4 ml-1" />
@@ -71,7 +71,7 @@ interface SelectValueProps {
 
 const SelectValue = ({ placeholder = '' }: SelectValueProps) => {
   const { value } = useSelect();
-  return <span>{value || placeholder}</span>;
+  return <span className="block truncate max-w-full">{value || placeholder}</span>;
 };
 
 interface SelectContentProps {

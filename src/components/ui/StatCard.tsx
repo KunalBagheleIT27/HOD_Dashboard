@@ -29,24 +29,24 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, change, iconCol
   const iconStyle = getIconBgColor(iconColor);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-5 hover:shadow-md transition-all duration-300 overflow-hidden">
+    <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 hover:shadow-md transition-all duration-300 overflow-hidden">
       {/* Header with title and icon aligned on same line */}
-      <div className="flex items-center justify-between gap-3 mb-3">
-        <h3 className="text-sm font-medium text-gray-600 tracking-tight">
+      <div className="flex items-center justify-between gap-2 mb-2">
+        <h3 className="text-xs sm:text-sm font-medium text-gray-600 tracking-tight">
           {title}
         </h3>
-        <div className={`flex-shrink-0 h-10 w-10 rounded-lg ${iconStyle.bg} ${iconStyle.text} flex items-center justify-center`}>
-          <span className="[&>svg]:h-5 [&>svg]:w-5">{icon}</span>
+        <div className={`flex-shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-lg ${iconStyle.bg} ${iconStyle.text} flex items-center justify-center`}>
+          <span className="[&>svg]:h-4 [&>svg]:w-4 sm:[&>svg]:h-5 sm:[&>svg]:w-5">{icon}</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="flex-1">
-        <p className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+        <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-1.5">
           {value}
         </p>
         {change?.text && (
-          <p className={`text-xs font-medium ${getVariantStyles(change.variant)}`}>
+          <p className={`text-[11px] font-medium ${getVariantStyles(change.variant)}`}>
             {change.text}
           </p>
         )}

@@ -24,32 +24,32 @@ const DepartmentPerformance: React.FC = () => {
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm h-full flex flex-col">
       {/* Header */}
-      <div className="px-3 sm:px-5 py-2.5 sm:py-3 flex-shrink-0">
-        <h2 className="text-base sm:text-lg font-bold text-gray-900">
+      <div className="px-3 sm:px-4 py-2 sm:py-2.5 flex-shrink-0">
+        <h2 className="text-sm sm:text-base font-bold text-gray-900">
           Department Performance Analytics
         </h2>
       </div>
 
       {/* Chart */}
-      <div className="flex-1 overflow-hidden flex flex-col px-2 sm:px-6 py-3 sm:py-5">
+      <div className="flex-1 overflow-hidden flex flex-col px-2 sm:px-4 py-2.5 sm:py-4">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={performanceData}
-            margin={{ top: 10, right: 10, left: -10, bottom: 10 }}
-            barSize={35}
-            barGap={8}
+            margin={{ top: 6, right: 8, left: -12, bottom: 6 }}
+            barSize={28}
+            barGap={6}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
             <XAxis
               dataKey="level"
               stroke="#9ca3af"
-              tick={{ fill: "#6b7280", fontSize: 10, fontWeight: 500 }}
+              tick={{ fill: "#6b7280", fontSize: 9, fontWeight: 500 }}
               axisLine={{ stroke: "#e5e7eb" }}
               tickLine={false}
             />
             <YAxis
               stroke="#9ca3af"
-              tick={{ fill: "#6b7280", fontSize: 11, fontWeight: 500 }}
+              tick={{ fill: "#6b7280", fontSize: 10, fontWeight: 500 }}
               axisLine={{ stroke: "#e5e7eb" }}
               tickLine={false}
               domain={[0, 100]}

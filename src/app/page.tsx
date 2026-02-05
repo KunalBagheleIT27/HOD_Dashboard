@@ -26,18 +26,18 @@ export default function HomePage() {
 
   return (
     <MainLayout>
-      <div className="w-full min-h-screen bg-gradient-to-b from-slate-50 via-slate-50 to-slate-100 pt-14 sm:pt-16 md:pt-20 pb-8">
+      <div className="w-full min-h-screen bg-gradient-to-b from-slate-50 via-slate-50 to-slate-100 pt-14 sm:pt-16 md:pt-16 pb-8">
 
         {/* Welcome Section */}
-        <div className="px-2 sm:px-3 md:px-4 mb-2 sm:mb-3 md:mb-4">
+        <div className="px-3 sm:px-4 md:px-5 mb-3 sm:mb-4 md:mb-5">
           <WelcomeSection
             userName={currentUser.name}
           />
         </div>
 
         {/* Stats + Module Selector */}
-        <div className="px-2 sm:px-3 md:px-4 mb-2 sm:mb-3 md:mb-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 sm:gap-2.5">
+        <div className="px-3 sm:px-4 md:px-5 mb-3 sm:mb-4 md:mb-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
             {dashboardStats.map((stat) => (
               <StatCard
                 key={stat.id}
@@ -52,10 +52,10 @@ export default function HomePage() {
         </div>
 
         {/* Main Content */}
-        <div className="px-2 sm:px-3 md:px-4 pb-2 sm:pb-3 md:pb-4">
+        <div className="px-3 sm:px-4 md:px-5 pb-4 sm:pb-5 md:pb-6">
 
           {/* Quick Actions + Pending Approvals */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-2.5 mb-2 sm:mb-2.5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4 mb-3 sm:mb-4">
             <QuickActions />
             <div className="lg:col-span-2 h-full">
               <PendingApprovals />
@@ -63,11 +63,11 @@ export default function HomePage() {
           </div>
 
           {/* Department Calendar + Performance Analytics */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-2.5">
-            <div className="h-full min-h-[350px] sm:min-h-[400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
+            <div className="h-full min-h-[300px] sm:min-h-[340px]">
               <DepartmentCalendar />
             </div>
-            <div className="h-full min-h-[350px] sm:min-h-[400px]">
+            <div className="h-full min-h-[300px] sm:min-h-[340px]">
               <DepartmentPerformance />
             </div>
           </div>

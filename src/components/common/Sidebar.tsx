@@ -189,7 +189,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-16 left-0 h-[calc(100vh-4rem)] w-72 bg-white border-r border-gray-200 z-40 transition-transform duration-300 lg:translate-x-0 overflow-y-auto",
+          "fixed top-14 sm:top-16 left-0 h-[calc(100vh-3.5rem)] sm:h-[calc(100vh-4rem)] w-72 bg-white border-r border-gray-200 z-40 transition-transform duration-300 lg:translate-x-0 overflow-y-auto",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -205,7 +205,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                   <button
                     onClick={() => toggleSubmenu(item.id)}
                     className={cn(
-                      "group w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200",
+                      "group w-full flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
                       item.active
                         ? "text-cyan-700 bg-green-50"
                         : "text-gray-800 hover:bg-green-50 hover:text-[#026892]"
@@ -213,7 +213,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
                       <Icon className={cn(
-                        "w-5 h-5 flex-shrink-0 transition-colors duration-200",
+                        "w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors duration-200",
                         item.active ? "text-cyan-600" : "text-gray-600 group-hover:text-[#026892]"
                       )} />
                       <span className="text-left whitespace-nowrap truncate">{item.label}</span>
@@ -229,7 +229,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                     href={item.href || "/"}
                     onClick={() => onToggle()}
                     className={cn(
-                      "group w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200",
+                      "group w-full flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
                       item.active
                         ? "text-cyan-700 bg-green-50"
                         : "text-gray-800 hover:bg-green-50 hover:text-[#026892]"
@@ -237,7 +237,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
                       <Icon className={cn(
-                        "w-5 h-5 flex-shrink-0 transition-colors duration-200",
+                        "w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors duration-200",
                         item.active ? "text-cyan-600" : "text-gray-600 group-hover:text-[#026892]"
                       )} />
                       <span className="text-left whitespace-nowrap truncate">{item.label}</span>
@@ -260,9 +260,9 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                               setExpandedMenus([]);
                             }
                           }}
-                          className="group flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-[#026892] transition-all duration-200"
+                          className="group flex items-center gap-3 px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-[#026892] transition-all duration-200"
                         >
-                          <SubIcon className="w-4 h-4 flex-shrink-0 text-gray-500 group-hover:text-[#026892]" />
+                          <SubIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-gray-500 group-hover:text-[#026892]" />
                           <span className="whitespace-nowrap truncate">{subItem.label}</span>
                         </Link>
                       );

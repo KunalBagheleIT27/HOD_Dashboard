@@ -15,6 +15,23 @@ import { EngagementTrendsData } from "@/types/engagement";
 import { dashboardIcons } from "@/data/icons";
 import { Semester } from "@/contexts/AcademicContext";
 
+// Helper function to generate time strings
+const isoMinutesAgo = (minutes: number): string => {
+  const now = new Date();
+  const minutesAgo = new Date(now.getTime() - minutes * 60000);
+  const diffMinutes = Math.floor((now.getTime() - minutesAgo.getTime()) / 60000);
+  
+  if (diffMinutes < 60) {
+    return `${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
+  } else if (diffMinutes < 1440) {
+    const hours = Math.floor(diffMinutes / 60);
+    return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+  } else {
+    const days = Math.floor(diffMinutes / 1440);
+    return `${days} ${days === 1 ? 'day' : 'days'} ago`;
+  }
+};
+
 type DashboardBundle = {
   dashboardStats: StatCard[];
   todayClassesData: TodayClassesData;
@@ -28,12 +45,6 @@ type DashboardBundle = {
   recentActivityData: RecentActivityData;
 };
 
-// Use a fixed reference time to avoid SSR/CSR mismatches from Date.now()
-const FIXED_TIME = new Date("2026-01-21T10:00:00Z").getTime();
-const isoMinutesAgo = (minutes: number) =>
-  new Date(FIXED_TIME - minutes * 60 * 1000).toISOString();
-
-// Dummy user data
 export const currentUser: User = {
   id: "1",
   name: "Dr. Ronny",
@@ -46,7 +57,7 @@ export const currentUser: User = {
 export const dashboardStats: StatCard[] = [
   {
     id: "total-faculty",
-    title: "Faculty Members",
+    title: "Staff Members",
     value: 45,
     change: { text: "Current Semester", variant: "positive" },
     icon: dashboardIcons.totalStudents,
@@ -72,7 +83,7 @@ export const dashboardStats: StatCard[] = [
     id: "active-modules",
     title: "Active Modules",
     value: 32,
-    change: { text: "+4 from last semester", variant: "positive" },
+    change: { text: "+4 from current semester", variant: "positive" },
     icon: dashboardIcons.activeCourses,
     iconColor: "purple",
   },

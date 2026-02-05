@@ -59,7 +59,7 @@ const TopBar: React.FC<HeaderProps> = ({ user, onToggleSidebar }) => {
         <div className="flex items-center gap-0.5 sm:gap-1.5 md:gap-2 lg:gap-3 flex-shrink-0">
           {/* Year Selector - Visible on all screens */}
           <Select defaultValue="2025-2026">
-            <SelectTrigger className="w-16 sm:w-20 md:w-24 lg:w-32 h-8 sm:h-9 bg-white border-gray-200 text-xs font-medium">
+            <SelectTrigger className="w-14 sm:w-20 md:w-24 lg:w-32 h-8 sm:h-9 bg-white border-gray-200 text-[11px] sm:text-xs font-medium">
               <SelectValue placeholder="Year" />
             </SelectTrigger>
             <SelectContent className="bg-white border border-gray-200 shadow-md z-50">
@@ -71,7 +71,7 @@ const TopBar: React.FC<HeaderProps> = ({ user, onToggleSidebar }) => {
 
           {/* Semester Selector - Responsive size */}
           <Select value={semester} onValueChange={setSemester}>
-            <SelectTrigger className="w-16 sm:w-24 md:w-40 h-8 sm:h-9 bg-white border-gray-200 text-xs font-medium">
+            <SelectTrigger className="w-14 sm:w-24 md:w-36 h-8 sm:h-9 bg-white border-gray-200 text-[11px] sm:text-xs font-medium">
               <span className="truncate hidden sm:inline">{getSemesterLabel(semester)}</span>
               <span className="sm:hidden text-xs">Sem</span>
             </SelectTrigger>
