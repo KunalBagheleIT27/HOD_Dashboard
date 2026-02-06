@@ -20,7 +20,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <Header user={currentUser} onToggleSidebar={toggleSidebar} />
       <div className="flex flex-1 lg:overflow-hidden">
         <Sidebar isOpen={isSidebarOpen} onToggle={toggleSidebar} />
-        <main className="flex-1 lg:ml-72 min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-64px)] flex flex-col overflow-x-hidden">
+        <main className="flex-1 lg:ml-72 min-h-[calc(100vh-110px)] sm:min-h-[calc(100vh-64px)] flex flex-col overflow-x-hidden pt-[110px] sm:pt-16 md:pt-16">
           <div className="flex-1 lg:overflow-y-auto">{children}</div>
           <Footer />
         </main>

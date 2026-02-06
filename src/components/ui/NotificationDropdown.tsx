@@ -107,7 +107,7 @@ const NotificationDropdown: React.FC<NotificationDropdownProps> = ({
 
       {/* Dropdown Panel */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-[calc(100vw-2rem)] sm:w-80 max-w-md bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-96 flex flex-col overflow-hidden">
+        <div className="fixed sm:absolute left-2 right-2 sm:left-auto sm:right-0 mt-2 sm:w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-96 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-100">
             <h3 className="text-sm sm:text-base font-semibold text-gray-900">Notifications</h3>

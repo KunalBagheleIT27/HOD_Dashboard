@@ -13,6 +13,7 @@ interface CalendarEvent {
 const DepartmentCalendar: React.FC = () => {
   const [currentDate, setCurrentDate] = React.useState(new Date());
   const [hoveredDay, setHoveredDay] = useState<number | null>(null);
+  const [clickedDay, setClickedDay] = useState<number | null>(null);
 
   const events: CalendarEvent[] = [
     { date: 5, title: "Faculty Meeting", color: "bg-blue-400", bgColor: "bg-blue-50" },
@@ -76,10 +77,42 @@ const DepartmentCalendar: React.FC = () => {
             <ChevronRight className="w-4 h-4 sm:w-4 sm:h-4 text-gray-600" />
           </button>
         </div>
+
+      {/* Backdrop for mobile - closes popup when clicking outside */}
+      {clickedDay !== null && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          onClick={() => setClickedDay(null)}
+        />
+      )}
+
+      {/* Backdrop for mobile - closes popup when clicking outside */}
+      {clickedDay !== null && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          onClick={() => setClickedDay(null)}
+        />
+      )}
+
+      {/* Backdrop for mobile - closes popup when clicking outside */}
+      {clickedDay !== null && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          onClick={() => setClickedDay(null)}
+        />
+      )}
+
+            {/* Backdrop for mobile - closes popup when clicking outside */}
+            {clickedDay !== null && (
+              <div
+                className="fixed inset-0 z-40 md:hidden"
+                onClick={() => setClickedDay(null)}
+              />
+            )}
       </div>
 
       {/* Calendar */}
-      <div className="flex-1 overflow-hidden flex flex-col px-1.5 sm:px-2 md:px-4 py-1.5 sm:py-2 md:py-2.5">
+      <div className="flex-1 overflow-visible flex flex-col px-1.5 sm:px-2 md:px-4 py-1.5 sm:py-2 md:py-2.5">
         <div className="flex-1 flex flex-col w-full">
           {/* Day names */}
           <div className="grid grid-cols-7 gap-0.5 sm:gap-1 md:gap-1.5 mb-1 sm:mb-1.5">
@@ -105,6 +138,8 @@ const DepartmentCalendar: React.FC = () => {
             {daysArray.map((day, index) => {
               const dayEvents = getEventsForDay(day);
               const isHovered = hoveredDay === day && dayEvents.length > 0;
+              const isClicked = clickedDay === day && dayEvents.length > 0;
+              const showPopup = (isHovered || isClicked) && dayEvents.length > 0;
               const col = (index + firstDay) % 7;
               const row = Math.floor((index + firstDay) / 7);
 
@@ -114,6 +149,11 @@ const DepartmentCalendar: React.FC = () => {
                   className="relative min-h-[26px] sm:min-h-[42px] md:min-h-[52px]"
                   onMouseEnter={() => setHoveredDay(day)}
                   onMouseLeave={() => setHoveredDay(null)}
+                  onClick={() => {
+                    if (dayEvents.length > 0) {
+                      setClickedDay(clickedDay === day ? null : day);
+                    }
+                  }}
                 >
                   <div
                     className={`border border-gray-200 rounded-lg p-1 sm:p-1.5 text-center flex flex-col transition-all duration-200 h-full ${
@@ -134,14 +174,15 @@ const DepartmentCalendar: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Hover Tooltip */}
-                  {isHovered && dayEvents.length > 0 && (
+                  {/* Popup Tooltip */}
+                  {showPopup && (
                     <div 
-                      className={`absolute z-50 bg-white border border-gray-200 rounded-lg shadow-xl p-2.5 w-52 ${
+                      className={`absolute z-50 bg-white border border-gray-200 rounded-lg shadow-xl p-2.5 w-48 sm:w-52 ${
                         row < 2 ? 'top-full mt-2' : 'bottom-full mb-2'
                       } ${
-                        col >= 4 ? 'right-0' : col <= 2 ? 'left-0' : 'left-1/2 -translate-x-1/2'
+                        col >= 5 ? 'right-0' : col <= 1 ? 'left-0' : 'left-1/2 -translate-x-1/2'
                       }`}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <div className="text-xs font-bold text-gray-900 mb-2 border-b border-gray-200 pb-1.5">
                         {dayName(day, currentDate)}
@@ -162,6 +203,14 @@ const DepartmentCalendar: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Backdrop for mobile - closes popup when clicking outside */}
+      {clickedDay !== null && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          onClick={() => setClickedDay(null)}
+        />
+      )}
     </div>
   );
 };

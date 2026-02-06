@@ -59,7 +59,7 @@ export const dashboardStats: StatCard[] = [
     id: "total-faculty",
     title: "Staff Members",
     value: 45,
-    change: { text: "Current Semester", variant: "positive" },
+    change: { text: "+5% from current semester", variant: "positive" },
     icon: dashboardIcons.totalStudents,
     iconColor: "blue",
   },

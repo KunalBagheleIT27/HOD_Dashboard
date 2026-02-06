@@ -12,7 +12,7 @@ const WelcomeSection: React.FC<WelcomeSectionProps> = ({
 
   return (
     <div className="w-full">
-      <div className="px-1 sm:px-2 py-1.5 mb-1.5 pt-6">
+      <div className="px-1 sm:px-2 py-1.5 mb-1.5 -mt-8">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1.5 leading-tight text-gray-900">
           Welcome back, {userName}!
         </h1>

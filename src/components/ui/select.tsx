@@ -57,10 +57,10 @@ const SelectTrigger = ({ children, className = '' }: SelectTriggerProps) => {
   return (
     <button
       onClick={() => setIsOpen(!isOpen)}
-      className={`flex items-center justify-between bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors min-w-0 overflow-hidden ${className}`}
+      className={`flex items-center justify-between bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors min-w-0 overflow-hidden whitespace-nowrap ${className}`}
     >
       {children}
-      <ChevronDown className="w-4 h-4 ml-1" />
+      <ChevronDown className="w-4 h-4 ml-1 flex-shrink-0" />
     </button>
   );
 };
@@ -71,7 +71,7 @@ interface SelectValueProps {
 
 const SelectValue = ({ placeholder = '' }: SelectValueProps) => {
   const { value } = useSelect();
-  return <span className="block truncate max-w-full">{value || placeholder}</span>;
+  return <span className="block truncate max-w-full whitespace-nowrap">{value || placeholder}</span>;
 };
 
 interface SelectContentProps {
@@ -102,7 +102,7 @@ const SelectItem = ({ value, children }: SelectItemProps) => {
   return (
     <button
       onClick={() => onChange(value)}
-      className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+      className={`w-full text-left px-4 py-2 text-sm transition-colors whitespace-nowrap ${
         selectedValue === value
           ? 'bg-blue-100 text-blue-900 font-semibold'
           : 'text-gray-700 hover:bg-gray-100'

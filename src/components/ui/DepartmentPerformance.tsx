@@ -31,8 +31,8 @@ const DepartmentPerformance: React.FC = () => {
       </div>
 
       {/* Chart */}
-      <div className="flex-1 overflow-hidden flex flex-col px-2 sm:px-4 py-2.5 sm:py-4">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="flex-1 overflow-hidden flex flex-col px-2 sm:px-4 py-2.5 sm:py-4 min-h-[240px]">
+        <ResponsiveContainer width="100%" height={240}>
           <BarChart
             data={performanceData}
             margin={{ top: 6, right: 8, left: -12, bottom: 6 }}
