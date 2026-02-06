@@ -9,16 +9,19 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-gray-200 mt-auto">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-3">
-        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 text-[10px] sm:text-xs text-gray-600 whitespace-nowrap overflow-x-auto">
-          <span>© {currentDate.getFullYear()} University HOD Portal</span>
-          <span className="text-gray-300">•</span>
-          <span>Academic Year 2023-2024</span>
-          <span className="text-gray-300">•</span>
-          <span>Version 2.1.0</span>
-          <span className="text-gray-300">•</span>
-          <span>Last updated: {formattedDate}</span>
-          <span className="text-gray-300">•</span>
-          <span>Session: Active</span>
+        <div className="flex items-center justify-between gap-x-2 text-[10px] sm:text-xs text-gray-600">
+          <div className="flex items-center gap-x-2">
+            <span>Version 2.1.0</span>
+            <span className="text-gray-300">•</span>
+            <span>Support</span>
+            <span className="text-gray-300">•</span>
+            <span>Terms</span>
+            <span className="text-gray-300">•</span>
+            <span>Privacy</span>
+          </div>
+          <div className="flex items-center gap-x-2">
+            <span>Last Updated: {formattedDate}</span>
+          </div>
         </div>
       </div>
     </footer>
